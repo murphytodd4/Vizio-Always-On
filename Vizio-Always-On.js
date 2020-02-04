@@ -4,7 +4,7 @@ var vizio = require('vizio-smart-cast');
 
 var deviceAddress = '192.168.1.52:9000';
 
-var timeout = 10 //Seconds
+var timeout = 10000 //milliseconds
 
 function setPowerState(state) {
     soundbar.power.currentMode().then((result) => {
@@ -23,4 +23,7 @@ function setPowerState(state) {
 
 var soundbar = new vizio(deviceAddress);
 
-setInterval(setPowerState(1), timeout);
+setInterval(function(){
+	setPowerState(1)
+	console.log("Check")
+}, timeout);
