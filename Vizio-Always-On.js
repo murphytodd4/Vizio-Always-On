@@ -1,22 +1,26 @@
 var vizio = require('vizio-smart-cast');
 
-var deviceAddress = '192.168.1.228:9000';
+//This script doesn't support a pairing step. The soundbar I have does not require it.
 
-function setPowerState(state, callback) {
-    displayDevice.power.currentMode().then((result) => {
+var deviceAddress = '192.168.1.52:9000';
+
+var timeout = 10 //Seconds
+
+function setPowerState(state) {
+    soundbar.power.currentMode().then((result) => {
 
 		var powerState = result.ITEMS[0].VALUE;
 		var isPowerOn = powerState == 1;
 
 		if (state == 1 && !isPowerOn) {
-            displayDevice.control.power.on();
+            soundbar.control.power.on();
         }
         else if (state == 0 && isPowerOn) {
-            displayDevice.control.power.off();
+            soundbar.control.power.off();
         }
 	});
 }
 
-var displayDevice = new vizio(deviceAddress);
+var soundbar = new vizio(deviceAddress);
 
-setPowerState(1)
+setInterval(setPowerState(1), timeout);
