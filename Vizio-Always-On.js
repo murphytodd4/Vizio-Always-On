@@ -1,10 +1,13 @@
 var vizio = require('vizio-smart-cast');
+var path = require('path');
 
 //This script doesn't support a pairing step. The soundbar I have does not require it.
 
-var deviceAddress = '192.168.1.52:9000';
+var deviceAddress = process.argv.slice(2)[0];
 
-var timeout = 10000 //milliseconds
+var filename = path.basename(__filename);
+
+var timeout = 10000; //milliseconds
 
 function setPowerState(state) {
     soundbar.power.currentMode().then((result) => {
@@ -21,9 +24,16 @@ function setPowerState(state) {
 	});
 }
 
-var soundbar = new vizio(deviceAddress);
+if(deviceAddress){
+	console.log("Running");
+	var soundbar = new vizio(deviceAddress);
 
-setInterval(function(){
-	setPowerState(1)
-	console.log("Check")
-}, timeout);
+	setInterval(function(){
+		setPowerState(1);
+	}, timeout);
+}
+else{
+	console.log("Usage: node "+filename+" [ipaddress]")
+	console.log()
+	console.log("ipaddress - can be the ip address or the port can be appended")
+}
