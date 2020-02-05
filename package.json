@@ -1,32 +1,28 @@
 {
-	"name": "Vizio-Always-On",
-	"version": "1.0",
-	"description": "Keep Vizio Soundbar always on",
-	"license": "MIT",
-	"repository": {
-	  "type": "git",
-	  "url": "git+https://github.com/murphytodd4/Vizio-Always-On.git"
-	},
-	"author": {
-		"name": "Todd Murphy",
-		"email": "murphytodd4@gmail.com",
-		"url": "https://github.com/murphytodd4"
-	},
-	"bin": {
-		"create-dmg": "Vizio-Always-On.js"
-	},
-	"engines": {
-		"node": ">=8"
-	},
-	"files": [
-		"Vizio-Always-On.js"
-	],
-	"keywords": [
-		"cli-app",
-		"vizio",
-		"soundbar"
-	],
-	"dependencies": {
-		"vizio-smart-cast": "^1.3.0"
-	}
+  "name": "Vizio-Always-On",
+  "version": "1.0.0",
+  "description": "Keep Vizio Soundbar always on",
+  "main": "Vizio-Always-On.js",
+  "dependencies": {
+    "vizio-smart-cast": "^1.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/murphytodd4/Vizio-Always-On.git"
+  },
+  "keywords": [
+	  "cli-app",
+	  "vizio",
+	  "soundbar"
+  ],
+  "author": "Todd Murphy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/murphytodd4/Vizio-Always-On/issues"
+  },
+  "homepage": "https://github.com/murphytodd4/Vizio-Always-On#readme"
 }
