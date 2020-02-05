@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var vizio = require('vizio-smart-cast');
 var path = require('path');
 
